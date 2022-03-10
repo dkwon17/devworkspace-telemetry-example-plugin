@@ -1,5 +1,7 @@
 # devworkspace-telemetry-example-plugin
 
+This project shows the completed telemetry plug-in example from the Che documentation [here](TODO: add link when ready).
+
 When running in the context of a DevWorkspace, this plug-in receives telemetry events from the `onEvent()` method, and sends a `POST` request to an `/event` endpoint from a baseUrl of `http://little-telemetry-back-end-che.apps-crc.testing`.
 
 This project requires a dependency from the GitHub Packages Maven registry, namely `org.eclipse.che.incubator.workspace-telemetry:backend-base`. See [Authenticating to GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages) in order to authenitcate with GitHub credentials, and retrieve the dependency.
