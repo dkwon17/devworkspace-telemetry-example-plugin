@@ -1,0 +1,30 @@
+schemaVersion: 2.1.0
+metadata:
+  name: devworkspace-telemetry-example-plugin
+components:
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-0e189d9
+      endpoints:
+        - exposure: none
+          name: debug
+          protocol: tcp
+          targetPort: 5005
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+      memoryLimit: 4G
+      mountSources: true
+  - name: m2
+    volume:
+      size: 1G
+commands:
+  - id: start-dev
+    exec:
+      label: "Start Development mode (Hot reload + debug)"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "./mvnw quarkus:dev -Dquarkus.http.port=${DEVWORKSPACE_TELEMETRY_BACKEND_PORT}"
+      group:
+        kind: run
+        isDefault: true
