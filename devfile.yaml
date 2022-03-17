@@ -1,6 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
   name: devworkspace-telemetry-example-plugin
+attributes:
+  workspaceEnv:
+    - name: DEVWORKSPACE_TELEMETRY_BACKEND_PORT
+      value: '4167'
 components:
   - name: tools
     container:
